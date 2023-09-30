@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Question</title>
+</head>
+<body>
+    <h1>Question {{ question_id + 1 }}</h1>
+    <form action="/answer" method="post">
+        <p>{{ question.question }}</p>
+        {% for choice in question.choices %}
+            <label>
+                <input type="radio" name="answer" value="{{ choice }}">
+                {{ choice }}
+            </label><br>
+        {% endfor %}
+        <button type="submit">Next</button>
+    </form>
+</body>
+</html>
